@@ -1,14 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root{
+    /* Dark mode variables */
     --background: #333;
+    --background2: rgb(38, 36, 36);
     --colorText: #fafafa;
     --border: var(--colorText);
-    --textHover: tomato;
-    --buttonBackground: tomato;
+    --textHover: rgb(198, 64, 64);
+    --buttonBackground: rgb(198, 64, 64);
     --buttonBackgroundHover: var(--colorText);
-    --fontFamily: 'Roboto', sans-serif;
+    --fontFamily: 'Roboto', sans-serif;    
 }
+
+[tema="light"]{
+    --background: #fafafa;
+    --background2: #c9c7c7;
+    --colorText: #333;
+    --lightBorder: var(--background);
+    --border: var(--colorText);
+    --textHover: var(--border);
+    --buttonBackground: steelblue;
+    --buttonBackgroundHover: var(--background);
+}
+
+/*Botón de cambio de tema*/
+
+#switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  #switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    outline: 2px solid var(--border);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--buttonBackground);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #fafafa;
+    outline: 2px solid #333;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: steelblue;
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 *{
     margin: 0;
@@ -68,29 +145,30 @@ body{
 }
 
 .nav{
-    background-color: #333;
-    /* padding: 50px 80px; */
+    background-color: var(--background2);
+    padding: 20px 50px;
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 15px auto;
     color: #fafafa;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     height: 70px;
+    border-radius: 15px;
 }
 
 .nav__logo{
     color: var(--colorText);
-    font-size: 1.8em;
+    font-size: 2rem;
     margin-left: 15px;
     flex-grow: 1;
     font-weight: 400;
 }
 
 .dot{
-    --dotColor: tomato;
+    --dotColor: var(--buttonBackground);
     color: var(--dotColor);
 
 }
@@ -118,12 +196,15 @@ body{
     max-width: 1200px;
     overflow: hidden;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
-.gallery__container{    
+.gallery__container{ 
+    padding: 50px 50px;   
     columns: 4 290px;
     column-gap: 0.5em;
+    background-color: var(--background2);
+    border-radius: 15px;
 }
 
 .gallery__img{
@@ -142,35 +223,6 @@ body{
 
 .gallery__img:hover{
     transform: scale(1.02);
-}
-
-.modal__close{
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    font-size: 30px;
-    font-weight: bold;
-    color: var(--buttonBackgroundHover);
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.full__img{
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-}
-
-.resized__img{
-    width: 100%;
-    max-width: 1200px;
 }
 
 .footer{
@@ -202,6 +254,12 @@ body{
     /* text-shadow: 1px 2px var(--font-color); */
 }
 
+@media screen and (max-width: 768px){
+    .modal__mail{
+        margin-bottom: 30px;
+    }
+}
+
 @media screen and (max-width: 550px){
     .nav{
         flex-direction: row;
@@ -213,5 +271,9 @@ body{
 
     .nav__cta{
         font-size: 0.8em;
+    }
+
+    .modal__title{
+        font-size: 1.1em;
     }
 }

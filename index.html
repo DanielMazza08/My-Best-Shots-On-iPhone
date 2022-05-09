@@ -7,25 +7,31 @@
     <link rel="icon" href="/assets/hexagono.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/modal.css">
-    <script type="text/javascript" src="scripts.js"></script>
+    <link rel="stylesheet" href="css/light.css">
+    <script type="text/javascript" src="main.js"></script>
     <title>My Best Shots</title>
 </head>
 <body>
     <nav class="nav" id="nav">
 
-            <div class="toggle__container">
+            <!-- <div class="toggle__container">
                 <input type="checkbox" id="toggle">
                 <label for="toggle" class="button"></label>
-            </div>
+            </div> -->
 
-            <h2 class="nav__logo">These Are My Best Shots<span class="dot">,</span> So Far<span class="dot">.</span></h2>
+            <label id="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+
+            <h2 class="nav__logo">My Personal Gallery Art<span class="dot">.</span></h2>
             <a href="#modal" class="nav__cta">Contacto</a>
     </nav>
 
     <section class="modal" id="modal">
         <div class="modal__container">
 
-            <h2 class="modal__title">Hola! me llamo Cristian, un gusto saludarte </h2>
+            <h2 class="modal__title">Hola! mi nombre es Cristian, un gusto saludarte<span class="dot">.</span></h2>
             
             <div class="modal__self">
 
@@ -33,19 +39,18 @@
 
                 <div class="modal__social">
                     <a href="https://www.twitter.com/danielmazza08">
-                        <img src="/assets/twitter.svg" class="social__cta" alt="twitter">
+                        <img src="/assets/twitter.svg" class="modal__cta" alt="twitter">
                     </a>
                     
                     <a href="https://www.instagram.com/danielmazza08">
-                        <img src="/assets/instagram.svg" class="social__cta" alt="instagram">
+                        <img src="/assets/instagram.svg" class="modal__cta" alt="instagram">
                     </a>
                     
                     <a href="https://www.linkedin.com/in/cristianmazza/">
-                        <img src="/assets/linkedin.svg" class="social__cta" alt="linkedin">
+                        <img src="/assets/linkedin.svg" class="modal__cta" alt="linkedin">
                     </a>
                 </div>
             </div>
-
             <p class="modal__mail">cristianmazza08@gmail.com</p>
             
             <a href="#" class="modal__close">X</a>
@@ -60,7 +65,7 @@
                 <div class="full__img--container">
                     <img class="resized__img" src="img/image1.jpg" id="fullImg">  
                 </div>
-                <span onclick="closeFullImg()" class="modal__close">X</span>
+                <span onclick="closeFullImg()" class="modal__close modal__close--full__img">X</span>
             </section>
             
                 <img src="assets/imgs/1.jpg" class="gallery__img" loading="lazy" onclick="openFullImg(this.src)">
@@ -137,5 +142,30 @@
         </div>
     </footer>
 
+    <script>
+        var fullImgBox = document.getElementById("fullImgBox");
+        var fullImg = document.getElementById("fullImg");
+
+        function openFullImg(pic){
+            fullImgBox.style.display = "flex";
+            fullImg.src = pic;
+        }
+
+        function closeFullImg(){
+            fullImgBox.style.display = "none";
+        }
+    </script>
+
+    <script>
+        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+        function cambiaTema(ev){
+            if(ev.target.checked){
+                document.documentElement.setAttribute('tema', 'light');
+            } else {
+                document.documentElement.setAttribute('tema', 'dark');
+            }
+        }
+        colorSwitch.addEventListener('change', cambiaTema);
+    </script>
 </body>
 </html>
