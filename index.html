@@ -6,6 +6,8 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/assets/hexagono.png">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script type="text/javascript" src="scripts.js"></script>
     <title>My Best Shots</title>
 </head>
 <body>
@@ -17,12 +19,49 @@
             </div>
 
             <h2 class="nav__logo">These Are My Best Shots<span class="dot">,</span> So Far<span class="dot">.</span></h2>
-            <a href="#" class="nav__cta">Contacto</a>
+            <a href="#modal" class="nav__cta">Contacto</a>
     </nav>
+
+    <section class="modal" id="modal">
+        <div class="modal__container">
+
+            <h2 class="modal__title">Hola! me llamo Cristian, un gusto saludarte </h2>
+            
+            <div class="modal__self">
+
+                <img  class="modal__img" src="/assets/profile.jpg" alt="profilePicture">
+
+                <div class="modal__social">
+                    <a href="https://www.twitter.com/danielmazza08">
+                        <img src="/assets/twitter.svg" class="social__cta" alt="twitter">
+                    </a>
+                    
+                    <a href="https://www.instagram.com/danielmazza08">
+                        <img src="/assets/instagram.svg" class="social__cta" alt="instagram">
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/cristianmazza/">
+                        <img src="/assets/linkedin.svg" class="social__cta" alt="linkedin">
+                    </a>
+                </div>
+            </div>
+
+            <p class="modal__mail">cristianmazza08@gmail.com</p>
+            
+            <a href="#" class="modal__close">X</a>
+        </div>
+    </section>
 
     <main class="gallery">
 
         <section class="gallery__container">
+
+            <section class="full__img" id="fullImgBox">
+                <div class="full__img--container">
+                    <img class="resized__img" src="img/image1.jpg" id="fullImg">  
+                </div>
+                <span onclick="closeFullImg()" class="modal__close">X</span>
+            </section>
             
                 <img src="assets/imgs/1.jpg" class="gallery__img" loading="lazy" onclick="openFullImg(this.src)">
         
@@ -97,5 +136,6 @@
             <a href="#nav" class="cta">Go up</a>
         </div>
     </footer>
+
 </body>
 </html>
