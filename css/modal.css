@@ -1,0 +1,82 @@
+/* Contact Modal */
+.modal{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    transition: transform .5s;
+    transform: translateY(-150vh);
+}
+
+.modal:target{
+    transform: translate(0);
+}
+
+.modal__container{
+    position: relative;
+    width: 40%;
+    height: 60%;
+    border-radius: 30px;
+    background-color: var(--background);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__title{
+    text-align: center;
+    font-size: 2rem;
+    padding: 15px;
+    color: var(--colorText);
+}
+
+.modal__img{
+    display: block;
+    width: 280px;
+    height: auto;
+    margin: 25px;
+    border-radius: 30px;
+}
+
+.modal__self{
+    display: flex;
+    margin-top: 20px;
+}
+
+.modal__social{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social__cta{
+    width: 100px;
+    height: 150px;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: block;
+}
+.modal__mail{
+    cursor: pointer;
+    color: var(--colorText);
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+.modal__close{
+    position: absolute;
+    background-color: var(--dotColor);
+    top: 10;
+    right: 10;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: var(--colorText);
+    text-decoration: none;
+    font-weight: bold;
+}
