@@ -23,6 +23,69 @@
     --buttonBackgroundHover: var(--background);
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+html{
+    overflow-y: scroll;
+	scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--fontFamily);
+    background: var(--background);
+}
+
+.nav{
+    background-color: var(--background2);
+    padding: 20px 50px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    color: #fafafa;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 70px;
+    border-radius: 15px;
+}
+
+.nav__logo{
+    color: var(--colorText);
+    font-size: 2rem;
+    margin-left: 15px;
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.dot{
+    --dotColor: var(--buttonBackground);
+    color: var(--dotColor);
+
+}
+
+.nav__cta{
+    color: var(--colorText);
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-left: 15px;
+    border: 2px solid var(--border);
+    background-color: var(--buttonBackground);
+    padding: 6px 15px;
+    border-radius: 30px;
+}
+
+.nav__cta:hover{
+    background-color: var(--buttonBackgroundHover);
+    color: var(--textHover);
+}
+
 /*Botón de cambio de tema*/
 
 #switch {
@@ -68,10 +131,6 @@
     outline: 2px solid #333;
   }
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px;
-  }
-  
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -87,109 +146,6 @@
     border-radius: 50%;
   }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* outline: 1px solid red; */
-}
-
-html{
-    overflow-y: scroll;
-	scroll-behavior: smooth;
-}
-
-body{
-    font-family: var(--fontFamily);
-    background: var(--background);
-}
-
-
-#toggle{
-    display: none;
-}
-
-.button{ /* caja del boton */
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    background-color: var(--background);
-    border: 2px solid var(--border);
-    border-radius: 30px;
-    position: relative;
-    cursor: pointer;
-    place-self: flex-end;
-}
-
-.button::after{ /* el boton en si */
-    content: url(/assets/moon.svg);
-    width: 30px;
-    height: 30px;
-    background-color: tomato;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .25);
-    position: absolute;
-    top: -4px;
-    left: -1;
-    display: grid;
-    place-content: center;
-    line-height: 0;
-    transition: background-color 1s, transform 1s ease;
-}
-
-#toggle:checked + .button::after{
-    content: url(/assets/sun.svg);
-    background-color: steelblue;
-    transform: translateX(30px) rotate(360deg);
-}
-
-.nav{
-    background-color: var(--background2);
-    padding: 20px 50px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 15px auto;
-    color: #fafafa;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    height: 70px;
-    border-radius: 15px;
-}
-
-.nav__logo{
-    color: var(--colorText);
-    font-size: 2rem;
-    margin-left: 15px;
-    flex-grow: 1;
-    font-weight: 400;
-}
-
-.dot{
-    --dotColor: var(--buttonBackground);
-    color: var(--dotColor);
-
-}
-
-.nav__cta{
-    color: var(--colorText);
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: 400;
-    margin-left: 15px;
-    border: 2px solid var(--border);
-    background-color: var(--buttonBackground);
-    padding: 6px 15px;
-    border-radius: 30px;
-}
-
-.nav__cta:hover{
-    background-color: var(--buttonBackgroundHover);
-    color: var(--textHover);
-}
-
 
 .gallery{
     width: 90%;
@@ -201,7 +157,7 @@ body{
 
 .gallery__container{ 
     padding: 50px 50px;   
-    columns: 4 290px;
+    columns: 5 190px;
     column-gap: 0.5em;
     background-color: var(--background2);
     border-radius: 15px;
@@ -258,6 +214,10 @@ body{
     .modal__mail{
         margin-bottom: 30px;
     }
+
+    .modal__container{
+        background-color: green;
+    }
 }
 
 @media screen and (max-width: 550px){
@@ -267,6 +227,8 @@ body{
 
     .nav__logo{
         order: -1;
+        font-size: 1.2em;
+        margin-left: unset;
     }
 
     .nav__cta{
@@ -275,5 +237,9 @@ body{
 
     .modal__title{
         font-size: 1.1em;
+    }
+
+    .modal__container{
+        background-color: var(--background);
     }
 }
